@@ -7,6 +7,12 @@ license = "MIT OR Apache-2.0"
 description = "A text adventure game engine."
 
 [dependencies]
-crossterm = "0.27"
 smallvec = "1"
 smartstring = "1"
+
+[dependencies.crossterm]
+version = "0.27"
+
+[dependencies.rhai]
+version = "1"
+features = ["sync"]
