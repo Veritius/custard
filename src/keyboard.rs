@@ -1,10 +1,16 @@
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum KeyboardMode {
+    Line,
+    Char,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum AllKeyEvents {
     Standard(StandardKeyEvent),
     Special(SpecialKeyEvent),
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum StandardKeyEvent {
     Key0,
     Key1,
@@ -47,7 +53,7 @@ pub enum StandardKeyEvent {
     Space,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SpecialKeyEvent {
     ArrowUp,
     ArrowDown,
