@@ -4,9 +4,8 @@ use rhai::plugin::*;
 pub(super) fn module() -> Arc<Module> {
     let mut module = Module::new();
 
-    FuncRegistration::new("delta_secs")
-        .with_volatility(true)
-        .set_into_module(&mut module, || { todo!() });
+    FuncRegistration::new("version")
+        .set_into_module(&mut module, || { env!("CARGO_PKG_VERSION") });
 
     return Arc::new(module);
 }
