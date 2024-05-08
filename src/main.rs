@@ -1,14 +1,11 @@
 pub mod keyboard;
-pub mod terminal;
 pub mod text;
 
-fn main() {
-    use std::io::{stdin, stdout};
+use std::io;
+use crossterm::terminal::enable_raw_mode;
 
-    let mut terminal = terminal::TermionTerminal {
-        stdin: stdin().lock(),
-        stdout: stdout().lock(),
-    };
+fn main() -> io::Result<()> {
+    enable_raw_mode().unwrap();
 
-    todo!()
+    loop {}
 }
