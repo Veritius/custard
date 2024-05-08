@@ -1,3 +1,5 @@
+pub mod time;
+
 use rhai::Engine as RhaiEngine;
 use rhai::Scope as RhaiScope;
 
@@ -8,8 +10,12 @@ pub struct Engine {
 
 impl Engine {
     pub fn new() -> Self {
+        let mut inner = RhaiEngine::new();
+
+        inner.register_static_module("time", time::module());
+
         Self {
-            inner: RhaiEngine::new(),
+            inner,
             memory: RhaiScope::new(),
         }
     }
