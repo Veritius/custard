@@ -11,7 +11,7 @@ fn main() -> io::Result<()> {
     let mut engine = Engine::new();
 
     // Configure the terminal
-    enable_raw_mode().unwrap();
+    enable_raw_mode()?;
     io::stdout().execute(EnterAlternateScreen)?;
 
     loop {}
