@@ -22,4 +22,4 @@ features = ["derive"]
 
 [dependencies.rhai]
 version = "1"
-features = ["serde", "no_time"]
+features = ["serde", "sync", "no_time"]
