@@ -7,28 +7,35 @@ pub struct Style {
 impl Default for Style {
     fn default() -> Self {
         Self {
-            foreground: Color::WHITE,
+            foreground: Color::White,
             background: None,
         }
     }
 }
 
+/// https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 #[derive(Debug, Clone, Copy)]
 pub enum Color {
-    Rgb {
-        red: f32,
-        blue: f32,
-        green: f32,
-    },
-}
-
-impl Color {
-    pub const WHITE: Self = Self::Rgb { red: 1.0, blue: 1.0, green: 1.0 };
-    pub const BLACK: Self = Self::Rgb { red: 0.0, blue: 0.0, green: 0.0 };
+    Black,
+    Red,
+    Green,
+    Yellow,
+    Blue,
+    Magenta,
+    Cyan,
+    White,
+    Gray,
+    DarkGray,
+    LightRed,
+    LightGreen,
+    LightYellow,
+    LightBlue,
+    LightMagenta,
+    LightCyan,
 }
 
 impl Default for Color {
     fn default() -> Self {
-        Self::WHITE
+        Self::White
     }
 }
