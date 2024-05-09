@@ -13,6 +13,9 @@ smartstring = "1"
 [dependencies.crossterm]
 version = "0.27"
 
+[dependencies.fastrand]
+version = "2"
+
 [dependencies.rhai]
 version = "1"
-features = ["sync"]
+features = ["sync", "no_time"]

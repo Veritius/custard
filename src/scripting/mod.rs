@@ -1,4 +1,5 @@
 pub mod meta;
+pub mod rand;
 
 use rhai::Engine as RhaiEngine;
 use rhai::Scope as RhaiScope;
@@ -10,12 +11,13 @@ pub struct Engine {
 
 impl Engine {
     pub fn new() -> Self {
-        let mut inner = RhaiEngine::new();
+        let mut engine = RhaiEngine::new();
 
-        inner.register_static_module("meta", meta::module());
+        meta::setup(&mut engine);
+        rand::setup(&mut engine);
 
         Self {
-            inner,
+            inner: engine,
             memory: RhaiScope::new(),
         }
     }
