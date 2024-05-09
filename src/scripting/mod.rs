@@ -1,5 +1,4 @@
 pub mod meta;
-pub mod time;
 
 use rhai::Engine as RhaiEngine;
 use rhai::Scope as RhaiScope;
@@ -14,7 +13,6 @@ impl Engine {
         let mut inner = RhaiEngine::new();
 
         inner.register_static_module("meta", meta::module());
-        inner.register_static_module("time", time::module());
 
         Self {
             inner,
