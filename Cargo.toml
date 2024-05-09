@@ -16,6 +16,10 @@ version = "0.27"
 [dependencies.fastrand]
 version = "2"
 
+[dependencies.serde]
+version = "1"
+features = ["derive"]
+
 [dependencies.rhai]
 version = "1"
 features = ["sync", "no_time"]
