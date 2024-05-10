@@ -1,16 +1,23 @@
 use std::io::Stdout;
 use ratatui::{backend::CrosstermBackend, Terminal};
+use crate::scripting::Engine;
 
 type Backend = Terminal<CrosstermBackend<Stdout>>;
 
-pub(crate) struct TerminalHandler {
+pub(crate) struct ProcessHandler {
     backend: Backend,
+    engine: Engine,
 }
 
-impl TerminalHandler {
+impl ProcessHandler {
     pub fn new(backend: Backend) -> Self {
         Self {
-            backend
+            backend,
+            engine: Engine::new(),
         }
+    }
+
+    pub fn run(mut self) {
+
     }
 }

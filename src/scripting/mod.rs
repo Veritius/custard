@@ -2,11 +2,9 @@ pub mod meta;
 pub mod rand;
 
 use rhai::Engine as RhaiEngine;
-use rhai::Scope as RhaiScope;
 
 pub struct Engine {
     pub inner: RhaiEngine,
-    pub memory: RhaiScope<'static>,
 }
 
 impl Engine {
@@ -18,7 +16,6 @@ impl Engine {
 
         Self {
             inner: engine,
-            memory: RhaiScope::new(),
         }
     }
 }
