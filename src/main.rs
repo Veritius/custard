@@ -3,6 +3,7 @@ pub mod scripting;
 pub mod text;
 
 mod app;
+mod layout;
 mod start;
 mod state;
 
