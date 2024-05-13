@@ -1,7 +1,7 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum KeyboardMode {
-    Line,
-    Char,
+    Editor,
+    Impulse,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
