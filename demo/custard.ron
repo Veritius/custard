@@ -7,5 +7,5 @@
     custard: "0.1.0",
     features: [],
 
-    entrypoint: "main.rhai",
+    entrypoint: "main.lua",
 )
