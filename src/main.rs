@@ -8,27 +8,41 @@ mod start;
 mod state;
 
 use std::io::{self, stdout};
-use crossterm::{terminal::*, ExecutableCommand};
+use app::Backend;
+use crossterm::{execute, terminal::*};
 use ratatui::{backend::CrosstermBackend, Terminal};
 
 fn main() -> io::Result<()> {
-    // Configure the terminal and create the abstraction
-    enable_raw_mode()?;
-    io::stdout().execute(EnterAlternateScreen)?;
+    // Add panic hook to reset stdout on panic
+    init_panic_hook();
 
-    let z: io::Result<()> = Ok({
-        let mut terminal = Terminal::new(CrosstermBackend::new(stdout()))?;
-        terminal.clear()?;
-
-        // Create and run the process handler
-        app::App::new(terminal).run()?;
-    });
+    // Configure terminal and create process handler
+    let terminal = init_tui()?;
+    app::App::new(terminal).run()?;
 
     // Reset the terminal
+    exit_tui()?;
+
+    Ok(())
+}
+
+fn init_panic_hook() {
+    use std::panic::*;
+    let original_hook = take_hook();
+    set_hook(Box::new(move |panic_info| {
+        let _ = exit_tui();
+        original_hook(panic_info);
+    }));
+}
+
+fn init_tui() -> io::Result<Backend> {
+    enable_raw_mode()?;
+    execute!(stdout(), EnterAlternateScreen)?;
+    Ok(Terminal::new(CrosstermBackend::new(stdout()))?)
+}
+
+fn exit_tui() -> io::Result<()> {
     disable_raw_mode()?;
-    io::stdout().execute(LeaveAlternateScreen)?;
-
-    z?;
-
+    execute!(stdout(), LeaveAlternateScreen)?;
     Ok(())
 }

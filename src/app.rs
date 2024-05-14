@@ -3,7 +3,7 @@ use crossterm::event;
 use ratatui::{backend::CrosstermBackend, Terminal};
 use crate::{start::StartMenu, state::State};
 
-type Backend = Terminal<CrosstermBackend<Stdout>>;
+pub(super) type Backend = Terminal<CrosstermBackend<Stdout>>;
 
 pub(crate) struct App {
     backend: Backend,
