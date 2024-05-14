@@ -23,6 +23,9 @@ version = "2"
 version = "1"
 features = ["derive"]
 
+[dependencies.ron]
+version = "0.8"
+
 [dependencies.rhai]
 version = "1"
 features = ["serde", "sync", "no_time"]
