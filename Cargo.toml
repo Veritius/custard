@@ -26,6 +26,6 @@ features = ["derive"]
 [dependencies.ron]
 version = "0.8"
 
-[dependencies.rhai]
-version = "1"
-features = ["serde", "sync", "no_time"]
+[dependencies.mlua]
+version = "0.9"
+features = ["luau-jit", "serialize", "send"]

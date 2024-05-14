@@ -1,5 +1,4 @@
 pub mod keyboard;
-pub mod scripting;
 pub mod text;
 
 mod app;
